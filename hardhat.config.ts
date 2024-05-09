@@ -67,7 +67,19 @@ const config: HardhatUserConfig = {
   },
   // @ts-ignore
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY
+    apiKey: {
+      dev: 'abc'
+    },
+    customChains: [
+      {
+        network: 'dev',
+        chainId: 31337,
+        urls: {
+          apiURL: 'http://127.0.0.1/api',
+          browserURL: 'http://127.0.0.1'
+        }
+      }
+    ]
   }
 
 }
